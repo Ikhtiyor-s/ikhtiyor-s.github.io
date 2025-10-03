@@ -6,45 +6,16 @@
 <title>Mening Linklarim</title>
 <style>
     body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f5f5f5;
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
-        color: #fff;
-        text-align: center;
-        overflow: hidden;
-        border: 10px solid #000; /* Qora ramka */
-    }
-    canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2; /* Orqa fon */
-    }
-    .earth {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 200px;
-        height: 200px;
-        background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg") no-repeat center/cover;
-        border-radius: 50%;
-        animation: spin 20s linear infinite;
-        z-index: -1; /* Fon ichida bo‘ladi */
-        transform: translate(-50%, -50%);
-        opacity: 0.3; /* biroz shaffof */
-    }
-    @keyframes spin {
-        from { transform: translate(-50%, -50%) rotate(0deg); }
-        to { transform: translate(-50%, -50%) rotate(360deg); }
     }
     .container {
-        position: relative;
         max-width: 500px;
         margin: auto;
         padding: 20px;
-        z-index: 1;
     }
     img {
         width: 150px;
@@ -52,15 +23,14 @@
         object-fit: cover;
         border-radius: 50%;
         margin-top: 20px;
-        border: 3px solid #fff;
+        border: 3px solid #ddd;
     }
     h1 {
         margin: 15px 0 5px 0;
-        font-size: 26px;
-        color: #00e5ff;
+        font-size: 24px;
     }
     p {
-        color: #ddd;
+        color: #555;
         font-size: 15px;
         margin: 5px 0;
     }
@@ -68,103 +38,41 @@
         display: block;
         margin: 12px auto;
         padding: 14px;
-        background: #222;
+        background: #fff;
         width: 90%;
         border-radius: 10px;
         text-decoration: none;
-        color: #fff;
+        color: #000;
         font-weight: bold;
-        box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
-        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        transition: background 0.2s, transform 0.2s;
     }
     .link:hover {
-        background: #00e5ff;
-        color: #000;
-        transform: scale(1.05);
-    }
-    .phone {
-        margin: 15px 0;
-        font-size: 16px;
-        font-weight: bold;
-        color: #ffcc00;
+        background: #e0e0e0;
+        transform: scale(1.02);
     }
 </style>
 </head>
 <body>
-    <!-- Orqa fon yulduzlar -->
-    <canvas id="stars"></canvas>
-    <!-- Yer shari -->
-    <div class="earth"></div>
-
-    <div class="container">
-        <!-- Profil rasmi -->
-        <img src="profil.jpg" alt="Profil rasmi">
-        
-        <!-- Ism Familiya -->
-        <h1>Suyunov Ixtiyor</h1>
-        
-        <!-- Faoliyat turi -->
-        <p><strong>Proyekt menejer</strong></p>
-        
-        <!-- Qisqacha izoh -->
-        <p>IT loyihalarni boshqarish</p>
-        
-        <!-- Telefon raqam -->
-        <p class="phone">📞 +998 90 123 45 67</p>
-        
-        <!-- Linklar -->
-        <a class="link" href="https://t.me/ixtiyor9300" target="_blank">📲 Telegram</a>
-        <a class="link" href="https://instagram.com/ikhtiyor.sb" target="_blank">📷 Instagram</a>
-        <a class="link" href="https://welltech.uz/" target="_blank">🌐 Bizning sayt</a>
-        <a class="link" href="https://play.google.com/store/apps/details?id=uz.welltech.nonbor.nonboruz" target="_blank">📱 NonBor barcha milliy taomlar</a>
-        <a class="link" href="https://play.google.com/store/apps/details?id=uz.welltech.nonborbusiness" target="_blank">📱 NonBor biznes uchun</a>
-        <a class="link" href="https://play.google.com/store/apps/details?id=uz.welltech.fitme" target="_blank">📱 FitMe o‘zingizga mosini tanlang</a>
-    </div>
-
-<script>
-    // Yulduzlar animatsiyasi
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let stars = [];
-    for (let i = 0; i < 200; i++) {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 2,
-            dx: (Math.random() - 0.5) * 0.5,
-            dy: (Math.random() - 0.5) * 0.5
-        });
-    }
-
-    function drawStars() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#fff";
-        stars.forEach(star => {
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fill();
-        });
-    }
-
-    function updateStars() {
-        stars.forEach(star => {
-            star.x += star.dx;
-            star.y += star.dy;
-            if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-            if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-        });
-    }
-
-    function animate() {
-        drawStars();
-        updateStars();
-        requestAnimationFrame(animate);
-    }
-    animate();
-</script>
+<div class="container">
+    <!-- Profil rasmi -->
+    <img src="profil.jpg" alt="Profil rasmi">
+    
+    <!-- Ism Familiya -->
+    <h1>Suyunov Ixtiyor</h1>
+    
+    <!-- Faoliyat turi -->
+    <p><strong>Proyekt menejer</strong></p>
+    
+    <!-- Qisqacha izoh -->
+    <p>IT loyihalarni boshqarish</p>
+    
+    <!-- Linklar -->
+    <a class="link" href="https://t.me/ixtiyor9300" target="_blank">📲 Telegram</a>
+    <a class="link" href="https://instagram.com/ikhtiyor.sb" target="_blank">📷 Instagram</a>
+    <a class="link" href="https://welltech.uz/" target="_blank">🌐 Mening saytim</a>
+    <a class="link" href="https://play.google.com/store/apps/details?id=uz.welltech.nonbor.nonboruz" target="_blank">📱 NonBor — mijozlar uchun</a>
+    <a class="link" href="https://play.google.com/store/apps/details?id=uz.welltech.fitme" target="_blank">👕 FitMe — o‘zingizga mos kiyim oling</a>
+</div>
 </body>
 </html>
-
